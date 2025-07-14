@@ -46,9 +46,10 @@ class Customer:
         print(f"Thanks, {self.name}, for your purchase!")
         print("You have bought:")
         for item in self.product_cart:
-            print(f"{self.product_cart[item]} {item}s "
-                  f"for {utils.from_float_to_int(self.product_cart[item]
-                         * shop.products[item])} dollars")
+            qty = self.product_cart[item]
+            price = shop.products[item]
+            cost = utils.from_float_to_int(qty * price)
+            print(f"{qty} {item}s for {cost} dollars")
         total = shop.calculate_products_cost(self.product_cart)
         print(f"Total cost is {utils.round2(total)} dollars")
         print("See you again!")
